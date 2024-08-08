@@ -1,0 +1,114 @@
+{
+  "categories": [
+    {
+      "name": "Comandos básicos",
+      "id": "123ABC",
+      "imageUrlSquare": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/journeys/comandos-basicos/Comandos_Basicos-Capa-Quadrado.jpg"
+    },
+    {
+      "name": "Saúde",
+      "id": "456DEF",
+      "imageUrlSquare": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/journeys/saude/Saude-Capa-Quadrado.jpg"
+    },
+    {
+      "name": "Primeiras semanas",
+      "id": "789GHI",
+      "imageUrlSquare": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/journeys/primeiras-semanas/Primeiras_Semanas-Capa-Quadrado.jpg"
+    }
+  ],
+  "singleBanner": {
+    "audience": "free",
+    "status": true,
+    "id": "XYZ987",
+    "partner": "budz",
+    "link": "budzapp://premium-plan",
+    "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/Premium_beneficio.jpg",
+    "targetSpecie": "all"
+  },
+  "pet": {
+    "gender": "male",
+    "breed": "Outros",
+    "name": "Buddy IA",
+    "id": "AABBCC0101",
+    "photoUrl": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/core-app/BuddyIA.jpg",
+    "mainPet": true,
+    "specie": "dog"
+  },
+  "articles": [
+    {
+      "categoryName": "Alimentação",
+      "id": "CBA321",
+      "colorCode": "#C5C94F",
+      "title": "Alimentação: problemas comuns e como resolvê-los",
+      "imageUrlSquare": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/articles/Problemas_alimentacao_Capa.jpg"
+    },
+    {
+      "categoryName": "Saúde",
+      "id": "FED654",
+      "colorCode": "#3C87F7",
+      "title": "Medicina veterinária integrativa: cuidado total",
+      "imageUrlSquare": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/Problemas-na-alimentacao_Capa.png"
+    }
+  ],
+  "banners": [
+    {
+      "audience": "all",
+      "status": true,
+      "id": "P5H5K6K89J",
+      "partner": "budz",
+      "priority": 2,
+      "link": "https://www.dnapets.com.br/?utm_source=budz&utm_medium=banner",
+      "targetSpecie": "all",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/BudzDNAPets_versao1.jpg"
+    },
+    {
+      "audience": "all",
+      "status": true,
+      "id": "K2N3M4K5",
+      "partner": "budz",
+      "priority": 3,
+      "link": "budzapp://category/fc5d1b6c-7c57-4ad5-a31f-15db3cccfd1d",
+      "targetSpecie": "all",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/banner_feature_top.png"
+    },
+    {
+      "audience": "premium",
+      "status": true,
+      "id": "B2B2B2B2",
+      "partner": "budz",
+      "priority": 3,
+      "link": "budzapp://health/vaccine-onboarding-welcome",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/banner_saude.jpg"
+    },
+    {
+      "audience": "all",
+      "status": true,
+      "id": "H7H7H7H7H7",
+      "partner": "budz",
+      "priority": 4,
+      "link": "budzapp://chatbot",
+      "targetSpecie": "all",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/banner_feature_bottom.png"
+    },
+    {
+      "audience": "all",
+      "status": false,
+      "id": "Z9Z9Z9Z9Z9",
+      "partner": "budz",
+      "priority": 7,
+      "link": "budzapp://trails",
+      "targetSpecie": "all",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/Budz_External_Midia.png"
+    },
+    {
+      "audience": "free",
+      "status": true,
+      "id": "3A8F1C6F-6919-491A-8B4B-E0C7E20FC0B3",
+      "partner": "budz",
+      "priority": 5,
+      "link": "https://tally.so/r/mK1ypz",
+      "targetSpecie": "all",
+      "imageURL": "https://budzappstagingstg.blob.core.windows.net/budzapp-staging-container/media/Feedback_loja.png"
+    }
+  ]
+}
