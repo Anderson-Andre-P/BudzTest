@@ -1,13 +1,16 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  // Declare observable variables for pet data
-  var petName = ''.obs;
-  var petGender = ''.obs;
-  var petBreed = ''.obs;
-  var petPhotoUrl = ''.obs;
+  // Adicione os campos RxInt para controle das páginas
+  final RxInt currentBannerPage = 0.obs;
+  final RxInt currentTrailPage = 0.obs;
 
-  // Simulate loading JSON data
+  // Adicione outras variáveis e métodos conforme necessário
+  final RxString petPhotoUrl = ''.obs;
+  final RxString petName = ''.obs;
+  final RxString petGender = ''.obs;
+  final RxString petBreed = ''.obs;
+
   void loadPetData(Map<String, dynamic> jsonData) {
     var petData = jsonData['pet'];
     petName.value = petData['name'];

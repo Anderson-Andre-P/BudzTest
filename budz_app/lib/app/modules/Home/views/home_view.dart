@@ -1,7 +1,4 @@
-import 'package:budz_app/app/components/custom_card.dart';
-import 'package:budz_app/app/components/custom_section_title.dart';
-import 'package:budz_app/app/components/custom_text.dart';
-import 'package:budz_app/app/modules/Home/models/trails_model.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,10 +6,14 @@ import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
 import '../../../components/custom_banner.dart';
+import '../../../components/custom_card.dart';
+import '../../../components/custom_section_title.dart';
+import '../../../components/custom_text.dart';
 import '../../../components/custom_trail_banner.dart';
 import '../../../services/services.dart';
 import '../controllers/home_controller.dart';
 import '../models/banner_model.dart';
+import '../models/trails_model.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -112,29 +113,59 @@ class HomeView extends GetView<HomeController> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  print("Erro ao carregar dados: ${snapshot.error}");
                   return Center(
                     child: Text("Erro ao carregar dados: ${snapshot.error}"),
                   );
                 } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                   final banners = snapshot.data!;
-                  return SizedBox(
-                    height: 144.h,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: banners.length,
-                      itemBuilder: (context, index) {
-                        final banner = banners[index];
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SizedBox(
-                            width: 144.w,
-                            height: 144.h,
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CarouselSlider.builder(
+                        options: CarouselOptions(
+                          height: 136.h,
+                          viewportFraction: 0.8,
+                          enlargeCenterPage: true,
+                          onPageChanged: (index, reason) {
+                            controller.currentBannerPage.value = index;
+                          },
+                        ),
+                        itemCount: banners.length,
+                        itemBuilder: (context, index, realIndex) {
+                          final banner = banners[index];
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 4.0),
                             child: CustomBanner(banner: banner),
+                          );
+                        },
+                      ),
+                      16.verticalSpace,
+                      Obx(
+                        () => Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            banners.length,
+                            (index) => AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
+                              height: 8,
+                              width: controller.currentBannerPage.value == index
+                                  ? 18
+                                  : 8,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4)),
+                                color:
+                                    controller.currentBannerPage.value == index
+                                        ? Colors.blue
+                                        : Colors.grey,
+                              ),
+                            ),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      ),
+                    ],
                   );
                 } else {
                   return const Center(
@@ -164,23 +195,24 @@ class HomeView extends GetView<HomeController> {
                   );
                 } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                   final categories = snapshot.data!;
-                  return SizedBox(
-                    height: 144.h,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: categories.length,
-                      itemBuilder: (context, index) {
-                        final categorie = categories[index];
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8.0, left: 8),
-                          child: SizedBox(
-                            width: 144.w,
-                            height: 144.h,
-                            child: CustomTrailBanner(categories: categorie),
-                          ),
-                        );
+                  return CarouselSlider.builder(
+                    options: CarouselOptions(
+                      height: 144.h,
+                      viewportFraction: 0.3,
+                      enlargeCenterPage: true,
+                      aspectRatio: 16 / 9,
+                      onPageChanged: (index, reason) {
+                        controller.currentTrailPage.value = index;
                       },
                     ),
+                    itemCount: categories.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final category = categories[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CustomTrailBanner(categories: category),
+                      );
+                    },
                   );
                 } else {
                   return const Center(
