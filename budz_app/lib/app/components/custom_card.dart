@@ -1,3 +1,4 @@
+import 'package:budz_app/app/components/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +16,6 @@ class CustomCard extends StatelessWidget {
           Container(
             height: 72.h,
             width: 114.w,
-            // padding: EdgeInsets.all(12.w),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(12),
@@ -28,23 +28,15 @@ class CustomCard extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                    ),
+                  child: CustomTextBodyTwo(
+                    words: title,
                   ),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(bottom: 12, left: 12, right: 12),
-                  child: Text(
-                    content,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: CustomTextSubTitle(
+                    words: content,
                   ),
                 ),
               ],

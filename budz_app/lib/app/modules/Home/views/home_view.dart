@@ -1,4 +1,5 @@
 import 'package:budz_app/app/components/custom_card.dart';
+import 'package:budz_app/app/components/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -54,12 +55,8 @@ class HomeView extends GetView<HomeController> {
                     children: [
                       Row(
                         children: [
-                          Obx(() => Text(
-                                controller.petName.value,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          Obx(() => CustomTextTitle(
+                                words: controller.petName.value,
                               )),
                           Obx(() => Icon(
                                 controller.petGender.value == 'male'
@@ -81,12 +78,8 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                       const SizedBox(height: 4),
-                      Obx(() => Text(
-                            controller.petBreed.value,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey,
-                            ),
+                      Obx(() => CustomTextBody(
+                            words: controller.petBreed.value,
                           )),
                     ],
                   ),
@@ -156,12 +149,8 @@ class HomeView extends GetView<HomeController> {
                           height: 24.h,
                           child: Row(
                             children: [
-                              Obx(() => Text(
-                                    controller.petName.value,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              Obx(() => CustomTextTitle(
+                                    words: controller.petName.value,
                                   )),
                               Obx(() => Icon(
                                     controller.petGender.value == 'male'
@@ -179,12 +168,8 @@ class HomeView extends GetView<HomeController> {
                         Obx(
                           () => SizedBox(
                             height: 24.h,
-                            child: Text(
-                              controller.petBreed.value,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
+                            child: CustomTextSubTitle(
+                              words: controller.petBreed.value,
                             ),
                           ),
                         ),

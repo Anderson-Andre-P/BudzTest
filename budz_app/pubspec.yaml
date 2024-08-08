@@ -38,3 +38,10 @@ flutter:
     - assets/images/
     - assets/vectors/
     - assets/data/budz_home.json
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Regular.ttf
+          weight: 400
+        - asset: Outfit-Bold.ttf
+          weight: 700
