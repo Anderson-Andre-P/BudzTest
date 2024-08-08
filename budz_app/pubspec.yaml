@@ -26,10 +26,16 @@ dependencies:
   cached_network_image: ^3.4.0
   http: ^1.2.2
 
+  url_launcher: ^6.3.0
+  json_annotation: ^4.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+
+  build_runner: ^2.3.3
+  json_serializable: ^6.5.4
 
 flutter:
   uses-material-design: true
@@ -43,5 +49,5 @@ flutter:
       fonts:
         - asset: assets/fonts/Outfit-Regular.ttf
           weight: 400
-        - asset: Outfit-Bold.ttf
+        - asset: assets/fonts/Outfit-Bold.ttf
           weight: 700
