@@ -1,4 +1,5 @@
 import 'package:budz_app/app/components/custom_card.dart';
+import 'package:budz_app/app/components/custom_section_title.dart';
 import 'package:budz_app/app/components/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -175,7 +176,12 @@ class HomeView extends GetView<HomeController> {
                   );
                 }
               },
-            )
+            ),
+            16.verticalSpace,
+            const CustomSectionTitle(
+              title: "Explorar Jornadas",
+              subtitle: "Descubra novas trilhas",
+            ),
           ],
         ),
       ),
