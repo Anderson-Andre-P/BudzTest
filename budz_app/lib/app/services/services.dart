@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart' as rootBundle;
 
 import '../modules/Home/models/banner_model.dart';
+import '../modules/Home/models/trails_model.dart';
 
 Future<Map<String, dynamic>> loadJsonData() async {
   try {
@@ -30,5 +31,18 @@ Future<List<BannerModel>> loadBanners() async {
   } catch (e) {
     print("Erro ao carregar JSON: $e");
     rethrow; // Propaga o erro para ser tratado onde o serviço é chamado
+  }
+}
+
+Future<List<TrailsModel>> loadTrailBanners() async {
+  try {
+    final String response =
+        await rootBundle.rootBundle.loadString('assets/data/budz_home.json');
+    final Map<String, dynamic> data = json.decode(response);
+    final List<dynamic> categoriesJson = data['categories'];
+    return categoriesJson.map((json) => TrailsModel.fromJson(json)).toList();
+  } catch (e) {
+    print("Erro ao carregar JSON: $e");
+    rethrow;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:budz_app/app/components/custom_card.dart';
 import 'package:budz_app/app/components/custom_section_title.dart';
 import 'package:budz_app/app/components/custom_text.dart';
+import 'package:budz_app/app/modules/Home/models/trails_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,12 +9,13 @@ import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
 import '../../../components/custom_banner.dart';
+import '../../../components/custom_trail_banner.dart';
 import '../../../services/services.dart';
 import '../controllers/home_controller.dart';
 import '../models/banner_model.dart';
 
 class HomeView extends GetView<HomeController> {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -116,57 +118,23 @@ class HomeView extends GetView<HomeController> {
                   );
                 } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                   final banners = snapshot.data!;
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 136,
-                        width: double.infinity,
-                        child: PageView.builder(
-                          controller: PageController(
-                            viewportFraction: 0.85,
+                  return SizedBox(
+                    height: 144.h,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: banners.length,
+                      itemBuilder: (context, index) {
+                        final banner = banners[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: SizedBox(
+                            width: 144.w,
+                            height: 144.h,
+                            child: CustomBanner(banner: banner),
                           ),
-                          itemCount: banners.length,
-                          itemBuilder: (context, index) {
-                            final banner = banners[index];
-                            return Padding(
-                              padding: const EdgeInsets.only(
-                                right: 8.0,
-                                left: 0,
-                                bottom: 0,
-                                top: 16,
-                              ),
-                              child: CustomBanner(banner: banner),
-                            );
-                          },
-                          onPageChanged: (index) {
-                            _currentPage.value = index;
-                          },
-                        ),
-                      ),
-                      16.verticalSpace,
-                      Obx(
-                        () => Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            banners.length,
-                            (index) => AnimatedContainer(
-                              duration: const Duration(milliseconds: 300),
-                              margin: const EdgeInsets.symmetric(horizontal: 4),
-                              height: 8,
-                              width: _currentPage.value == index ? 18 : 8,
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4)),
-                                color: _currentPage.value == index
-                                    ? Colors.blue
-                                    : Colors.grey,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                        );
+                      },
+                    ),
                   );
                 } else {
                   return const Center(
@@ -178,17 +146,56 @@ class HomeView extends GetView<HomeController> {
               },
             ),
             16.verticalSpace,
-            const CustomSectionTitle(
-              title: "Explorar Jornadas",
-              subtitle: "Descubra novas trilhas",
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: CustomSectionTitle(
+                title: "Explorar Jornadas",
+                subtitle: "Descubra novas trilhas",
+              ),
             ),
+            FutureBuilder<List<TrailsModel>>(
+              future: loadTrailBanners(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text("Erro ao carregar dados: ${snapshot.error}"),
+                  );
+                } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                  final categories = snapshot.data!;
+                  return SizedBox(
+                    height: 144.h,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categories.length,
+                      itemBuilder: (context, index) {
+                        final categorie = categories[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8.0, left: 8),
+                          child: SizedBox(
+                            width: 144.w,
+                            height: 144.h,
+                            child: CustomTrailBanner(categories: categorie),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                } else {
+                  return const Center(
+                    child: Text(
+                      "Nenhum treinamento disponível.",
+                    ),
+                  );
+                }
+              },
+            )
           ],
         ),
       ),
     );
   }
-
-  final RxInt _currentPage = 0.obs;
 
   void _showEditBottomSheet(BuildContext context) {
     showModalBottomSheet(
