@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/Home/bindings/home_binding.dart';
 import '../modules/Home/views/home_view.dart';
+import '../modules/Onboarding/bindings/onboarding_binding.dart';
+import '../modules/Onboarding/views/onboarding_view.dart';
 import '../modules/Splash/bindings/splash_binding.dart';
 import '../modules/Splash/views/splash_view.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.ONBOARDING,
+      page: () => const OnboardingView(),
+      binding: OnboardingBinding(),
     ),
   ];
 }
