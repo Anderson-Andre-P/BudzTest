@@ -33,9 +33,9 @@ class TrailSectionWidget extends StatelessWidget {
             children: [
               CarouselSlider.builder(
                 options: CarouselOptions(
-                  height: 144.h,
+                  height: 174.h,
                   viewportFraction: 0.3,
-                  enlargeCenterPage: true,
+                  enlargeCenterPage: false,
                   aspectRatio: 16 / 9,
                   onPageChanged: (index, reason) {
                     currentTrailPage.value = index;
@@ -60,21 +60,27 @@ class TrailSectionWidget extends StatelessWidget {
   }
 
   Widget _buildPaginationDots(int itemCount) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        itemCount,
-        (index) => AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          height: 8,
-          width: currentTrailPage.value == index ? 18 : 8,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
-            color: currentTrailPage.value == index ? Colors.blue : Colors.grey,
+    return Column(
+      children: [
+        16.verticalSpace,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            itemCount,
+            (index) => AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              height: 8,
+              width: currentTrailPage.value == index ? 18 : 8,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(4)),
+                color:
+                    currentTrailPage.value == index ? Colors.blue : Colors.grey,
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

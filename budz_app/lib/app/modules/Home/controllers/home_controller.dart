@@ -1,11 +1,9 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  // Adicione os campos RxInt para controle das páginas
   final RxInt currentBannerPage = 0.obs;
   final RxInt currentTrailPage = 0.obs;
 
-  // Adicione outras variáveis e métodos conforme necessário
   String petPhotoUrl = '';
   String petName = '';
   String petGender = '';

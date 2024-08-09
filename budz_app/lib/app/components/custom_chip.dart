@@ -15,7 +15,7 @@ class CustomChip extends StatelessWidget {
           words,
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontSize: 14.sp,
+            fontSize: 12.sp,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.2.sp,
             fontFamily: "Outfit",

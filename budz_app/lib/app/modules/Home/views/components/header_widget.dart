@@ -121,7 +121,6 @@ class HeaderWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
-                    // Implement the logic to update pet details here
                   },
                   child: Container(
                     height: 40.h,

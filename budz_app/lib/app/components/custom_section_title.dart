@@ -15,39 +15,42 @@ class CustomSectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomTextTitle(words: title),
-              CustomTextBody(words: subtitle),
-            ],
-          ),
-          Row(
-            children: [
-              TextButton(
-                child: Text(
-                  "Ver tudo",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.2.sp,
-                    fontFamily: "Outfit",
-                    color: const Color.fromRGBO(35, 113, 238, 1),
-                    backgroundColor: Colors.transparent,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomTextTitle(words: title),
+                CustomTextBody(words: subtitle),
+              ],
+            ),
+            Row(
+              children: [
+                TextButton(
+                  child: Text(
+                    "Ver tudo",
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.2.sp,
+                      fontFamily: "Outfit",
+                      color: const Color.fromRGBO(35, 113, 238, 1),
+                      backgroundColor: Colors.transparent,
+                    ),
                   ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
-              ),
-              const Icon(
-                Icons.chevron_right,
-                color: Color.fromRGBO(35, 113, 238, 1),
-              ),
-            ],
-          )
-        ],
+                const Icon(
+                  Icons.chevron_right,
+                  color: Color.fromRGBO(35, 113, 238, 1),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

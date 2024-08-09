@@ -46,7 +46,7 @@ class HomeView extends GetView<HomeController> {
                 context,
                 controller: controller,
               ),
-              SizedBox(height: 24.h),
+              24.verticalSpace,
               const PetInfoWidget(),
               16.verticalSpace,
               BannersSectionWidget(
@@ -54,12 +54,15 @@ class HomeView extends GetView<HomeController> {
                 currentBannerPage: controller.currentBannerPage,
               ),
               16.verticalSpace,
-              const CustomSectionTitle(title: "title", subtitle: "subtitle"),
+              const CustomSectionTitle(
+                  title: "Explorar Jornadas",
+                  subtitle: "Descubra novas trilhas"),
               TrailSectionWidget(
                 loadTrailBanners: loadTrailBanners,
                 currentTrailPage: controller.currentTrailPage,
               ),
-              const CustomSectionTitle(title: "title", subtitle: "subtitle"),
+              const CustomSectionTitle(
+                  title: "Artigos", subtitle: "Conteúdos e dicas extras"),
               16.verticalSpace,
               const ArticlesSectionWidget(
                 loadArticles: loadArticles,

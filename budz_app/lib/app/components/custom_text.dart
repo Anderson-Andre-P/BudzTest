@@ -26,9 +26,10 @@ class CustomTextTitle extends StatelessWidget {
 }
 
 class CustomTextSubTitle extends StatelessWidget {
-  const CustomTextSubTitle({super.key, required this.words});
+  const CustomTextSubTitle({super.key, required this.words, this.align});
 
   final String words;
+  final TextAlign? align;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,7 @@ class CustomTextSubTitle extends StatelessWidget {
       color: Colors.transparent,
       child: Text(
         words,
+        textAlign: align ?? TextAlign.center,
         style: TextStyle(
           fontSize: 16.sp,
           fontWeight: FontWeight.w700,

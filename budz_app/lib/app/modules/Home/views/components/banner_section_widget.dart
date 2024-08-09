@@ -35,7 +35,7 @@ class BannersSectionWidget extends StatelessWidget {
                 options: CarouselOptions(
                   height: 136.h,
                   viewportFraction: 0.8,
-                  enlargeCenterPage: true,
+                  enlargeCenterPage: false,
                   onPageChanged: (index, reason) {
                     currentBannerPage.value = index;
                   },
