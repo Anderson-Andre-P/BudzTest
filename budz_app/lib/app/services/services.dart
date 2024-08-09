@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:budz_app/app/modules/Home/models/articles_model.dart';
 import 'package:flutter/services.dart' as rootBundle;
 
 import '../modules/Home/models/banner_model.dart';
@@ -41,6 +42,19 @@ Future<List<TrailsModel>> loadTrailBanners() async {
     final Map<String, dynamic> data = json.decode(response);
     final List<dynamic> categoriesJson = data['categories'];
     return categoriesJson.map((json) => TrailsModel.fromJson(json)).toList();
+  } catch (e) {
+    print("Erro ao carregar JSON: $e");
+    rethrow;
+  }
+}
+
+Future<List<ArticlesModel>> loadArticles() async {
+  try {
+    final String response =
+        await rootBundle.rootBundle.loadString('assets/data/budz_home.json');
+    final Map<String, dynamic> data = json.decode(response);
+    final List<dynamic> articlesJson = data['articles'];
+    return articlesJson.map((json) => ArticlesModel.fromJson(json)).toList();
   } catch (e) {
     print("Erro ao carregar JSON: $e");
     rethrow;
