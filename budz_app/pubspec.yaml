@@ -39,6 +39,11 @@ dev_dependencies:
 
   carousel_slider: ^5.0.0
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/images/app_icon.png'
+
 flutter:
   uses-material-design: true
 
