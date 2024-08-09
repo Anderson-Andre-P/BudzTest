@@ -28,6 +28,7 @@ dependencies:
 
   url_launcher: ^6.3.0
   json_annotation: ^4.7.0
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
