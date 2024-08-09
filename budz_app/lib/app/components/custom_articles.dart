@@ -46,7 +46,7 @@ class CustomArticles extends StatelessWidget {
               color: Colors.grey,
               child: const Icon(Icons.broken_image, size: 50),
             ),
-          const SizedBox(width: 16),
+          16.horizontalSpace,
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,

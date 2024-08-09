@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../utils/constants.dart';
 import '../../../../components/custom_text.dart';
 import '../../controllers/home_controller.dart';
 
@@ -22,7 +24,7 @@ class HeaderWidget extends StatelessWidget {
           height: 80.h,
           fit: BoxFit.cover,
         ),
-        const SizedBox(width: 10),
+        12.horizontalSpace,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,10 +44,11 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 4),
+            4.verticalSpace,
             CustomTextBody(words: controller.petBreed),
           ],
         ),
+        const Spacer(),
         IconButton(
           onPressed: () {},
           icon: const Icon(Icons.edit_outlined),
@@ -77,7 +80,7 @@ class HeaderWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 24.h),
+                24.verticalSpace,
                 Row(
                   children: [
                     Image.network(
@@ -88,7 +91,7 @@ class HeaderWidget extends StatelessWidget {
                       height: 60.h,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    12.verticalSpace,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -108,32 +111,55 @@ class HeaderWidget extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        4.verticalSpace,
                         SizedBox(
-                          height: 16.h,
+                          height: 18.h,
                           child: CustomTextBody(words: controller.petBreed),
                         ),
                       ],
                     ),
+                    const Spacer(),
+                    Checkbox(
+                      checkColor: Colors.white,
+                      activeColor: Colors.blue,
+                      value: true,
+                      shape: const CircleBorder(),
+                      onChanged: (bool? value) {},
+                    )
                   ],
                 ),
-                SizedBox(height: 24.h),
+                24.verticalSpace,
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    height: 40.h,
-                    width: double.infinity,
+                    height: 50.h,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.blue,
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Edit Pet Details',
-                        style: TextStyle(color: Colors.white),
+                      border: Border.all(
+                        color: Colors.amber,
+                        width: 2,
                       ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12),
+                      ),
+                      color: Colors.amber[50],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          Constants.crown,
+                          colorFilter: const ColorFilter.mode(
+                            Colors.amber,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                        const Text("Adicione mais pets com Budz Premium."),
+                        const Icon(
+                          Icons.arrow_forward,
+                        ),
+                      ],
                     ),
                   ),
                 ),
