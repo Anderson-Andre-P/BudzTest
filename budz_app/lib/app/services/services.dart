@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:budz_app/app/modules/Home/models/articles_model.dart';
 import 'package:flutter/services.dart' as rootBundle;
 
 import '../modules/Home/models/ads_model.dart';
+import '../modules/Home/models/articles_model.dart';
 import '../modules/Home/models/banner_model.dart';
 import '../modules/Home/models/trails_model.dart';
 

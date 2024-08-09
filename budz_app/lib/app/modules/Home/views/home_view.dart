@@ -27,15 +27,36 @@ class HomeView extends GetView<HomeController> {
         } else {
           if (snapshot.hasData) {
             final data = snapshot.data as Map<String, dynamic>;
-            controller.loadPetData(data);
+
+            // Extraindo dados do pet
+            final petData = data['pet'];
+            final petPhotoUrl = petData['photoUrl'] ?? '';
+            final petName = petData['name'] ?? '';
+            final petGender = petData['gender'] ?? '';
+            final petBreed = petData['breed'] ?? '';
+
+            return _buildContent(
+              context,
+              petPhotoUrl: petPhotoUrl,
+              petName: petName,
+              petGender: petGender,
+              petBreed: petBreed,
+            );
+          } else {
+            return const Center(child: Text("Nenhum dado disponível."));
           }
-          return _buildContent(context);
         }
       },
     );
   }
 
-  Widget _buildContent(BuildContext context) {
+  Widget _buildContent(
+    BuildContext context, {
+    required String petPhotoUrl,
+    required String petName,
+    required String petGender,
+    required String petBreed,
+  }) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -44,8 +65,10 @@ class HomeView extends GetView<HomeController> {
             children: [
               16.verticalSpace,
               HeaderWidget(
-                context,
-                controller: controller,
+                petPhotoUrl: petPhotoUrl,
+                petName: petName,
+                petGender: petGender,
+                petBreed: petBreed,
               ),
               16.verticalSpace,
               const PetInfoWidget(),

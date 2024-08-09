@@ -4,21 +4,28 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../utils/constants.dart';
 import '../../../../components/custom_text.dart';
-import '../../controllers/home_controller.dart';
 
 class HeaderWidget extends StatelessWidget {
-  final HomeController controller;
+  final String petPhotoUrl;
+  final String petName;
+  final String petGender;
+  final String petBreed;
 
-  const HeaderWidget(BuildContext context,
-      {super.key, required this.controller});
+  const HeaderWidget({
+    super.key,
+    required this.petPhotoUrl,
+    required this.petName,
+    required this.petGender,
+    required this.petBreed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Image.network(
-          controller.petPhotoUrl.isNotEmpty
-              ? controller.petPhotoUrl
+          petPhotoUrl.isNotEmpty
+              ? petPhotoUrl
               : 'https://via.placeholder.com/80',
           width: 80.w,
           height: 80.h,
@@ -30,10 +37,10 @@ class HeaderWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                CustomTextTitle(words: controller.petName),
+                CustomTextTitle(words: petName),
                 Icon(
-                  controller.petGender == 'male' ? Icons.male : Icons.female,
-                  color: controller.petGender == 'male'
+                  petGender == 'male' ? Icons.male : Icons.female,
+                  color: petGender == 'male'
                       ? const Color.fromRGBO(107, 223, 242, 1)
                       : const Color.fromRGBO(255, 105, 180, 1),
                 ),
@@ -45,7 +52,7 @@ class HeaderWidget extends StatelessWidget {
               ],
             ),
             4.verticalSpace,
-            CustomTextBody(words: controller.petBreed),
+            CustomTextBody(words: petBreed),
           ],
         ),
         const Spacer(),
@@ -84,8 +91,8 @@ class HeaderWidget extends StatelessWidget {
                 Row(
                   children: [
                     Image.network(
-                      controller.petPhotoUrl.isNotEmpty
-                          ? controller.petPhotoUrl
+                      petPhotoUrl.isNotEmpty
+                          ? petPhotoUrl
                           : 'https://via.placeholder.com/80',
                       width: 60.w,
                       height: 60.h,
@@ -99,12 +106,10 @@ class HeaderWidget extends StatelessWidget {
                           height: 24.h,
                           child: Row(
                             children: [
-                              CustomTextTitle(words: controller.petName),
+                              CustomTextTitle(words: petName),
                               Icon(
-                                controller.petGender == 'male'
-                                    ? Icons.male
-                                    : Icons.female,
-                                color: controller.petGender == 'male'
+                                petGender == 'male' ? Icons.male : Icons.female,
+                                color: petGender == 'male'
                                     ? const Color.fromRGBO(107, 223, 242, 1)
                                     : const Color.fromRGBO(255, 105, 180, 1),
                               ),
@@ -114,7 +119,7 @@ class HeaderWidget extends StatelessWidget {
                         4.verticalSpace,
                         SizedBox(
                           height: 18.h,
-                          child: CustomTextBody(words: controller.petBreed),
+                          child: CustomTextBody(words: petBreed),
                         ),
                       ],
                     ),
