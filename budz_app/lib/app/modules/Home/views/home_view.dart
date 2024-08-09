@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import '../../../services/services.dart';
 import '../controllers/home_controller.dart';
+import 'components/ads_widget.dart';
 import 'components/articles_section_widget.dart';
 import 'components/banner_section_widget.dart';
 import 'components/trail_section_widget.dart';
@@ -46,7 +47,7 @@ class HomeView extends GetView<HomeController> {
                 context,
                 controller: controller,
               ),
-              24.verticalSpace,
+              16.verticalSpace,
               const PetInfoWidget(),
               16.verticalSpace,
               BannersSectionWidget(
@@ -61,6 +62,11 @@ class HomeView extends GetView<HomeController> {
                 loadTrailBanners: loadTrailBanners,
                 currentTrailPage: controller.currentTrailPage,
               ),
+              16.verticalSpace,
+              const AdsWidget(
+                loadAds: loadAds,
+              ),
+              16.verticalSpace,
               const CustomSectionTitle(
                   title: "Artigos", subtitle: "Conteúdos e dicas extras"),
               16.verticalSpace,
