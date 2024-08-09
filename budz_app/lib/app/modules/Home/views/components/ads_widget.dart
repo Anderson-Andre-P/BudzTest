@@ -37,6 +37,7 @@ class AdsWidget extends StatelessWidget {
                 child: Image.network(
                   "${banner.imageURL}",
                   height: 136.h,
+                  width: 358.w,
                   fit: BoxFit.cover,
                 ),
               ),
