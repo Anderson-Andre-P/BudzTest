@@ -9,6 +9,7 @@ class CustomTextTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Text(
         words,
         style: TextStyle(
@@ -32,6 +33,7 @@ class CustomTextSubTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Text(
         words,
         style: TextStyle(
@@ -55,6 +57,7 @@ class CustomTextBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Text(
         words,
         style: TextStyle(
@@ -78,6 +81,7 @@ class CustomTextBodyTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Text(
         words,
         style: TextStyle(

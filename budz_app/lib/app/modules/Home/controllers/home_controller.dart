@@ -6,16 +6,16 @@ class HomeController extends GetxController {
   final RxInt currentTrailPage = 0.obs;
 
   // Adicione outras variáveis e métodos conforme necessário
-  final RxString petPhotoUrl = ''.obs;
-  final RxString petName = ''.obs;
-  final RxString petGender = ''.obs;
-  final RxString petBreed = ''.obs;
+  String petPhotoUrl = '';
+  String petName = '';
+  String petGender = '';
+  String petBreed = '';
 
   void loadPetData(Map<String, dynamic> jsonData) {
     var petData = jsonData['pet'];
-    petName.value = petData['name'];
-    petGender.value = petData['gender'];
-    petBreed.value = petData['breed'];
-    petPhotoUrl.value = petData['photoUrl'];
+    petName = petData['name'];
+    petGender = petData['gender'];
+    petBreed = petData['breed'];
+    petPhotoUrl = petData['photoUrl'];
   }
 }
