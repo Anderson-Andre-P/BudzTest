@@ -58,6 +58,7 @@ class HomeView extends GetView<HomeController> {
               const CustomSectionTitle(
                   title: "Explorar Jornadas",
                   subtitle: "Descubra novas trilhas"),
+              16.verticalSpace,
               TrailSectionWidget(
                 loadTrailBanners: loadTrailBanners,
                 currentTrailPage: controller.currentTrailPage,

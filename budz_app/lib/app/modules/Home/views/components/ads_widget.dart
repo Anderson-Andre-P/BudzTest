@@ -32,10 +32,13 @@ class AdsWidget extends StatelessWidget {
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Image.network(
-                "${banner.imageURL}",
-                height: 136.h,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  "${banner.imageURL}",
+                  height: 136.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           );
